@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'notes-container',
   styles: [`
@@ -10,25 +11,7 @@ import { Component } from '@angular/core';
       margin-bottom: 40px;
     }
   `],
-  template: `
-    <div class="row center-xs notes">
-      <div class="col-xs-6 creator">
-        note creator here
-      </div>
-      <div class="notes col-xs-8">
-        <div class="row between-xs">
-          <note-card
-            class="col-xs-4"
-            *ngFor="let note of notes; let i = index"
-            [note]="note"
-            (checked)="onNoteChecked(i)"
-          >
-          </note-card>
-          
-        </div>
-      </div>
-    </div>
-  `
+  template: require('./notes.html')
 })
 export class Notes {
   notes = [
@@ -40,5 +23,9 @@ export class Notes {
 
   onNoteChecked(i: number) {
     this.notes.splice(i,1)
+  }
+
+  onCreateNote(note){
+    this.notes.push(note)
   }
 }
