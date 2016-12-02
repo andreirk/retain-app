@@ -32,6 +32,7 @@ import { Component } from '@angular/core';
 export class NotesContainer {
     note = {
         title: 'tis is a note',
-        value:  'eat some food'
+        value:  'eat some food',
+        color: 'lightblue'
     }
 }
