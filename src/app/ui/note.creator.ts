@@ -27,22 +27,43 @@ export class NoteCreator {
     }
     newNote = {
         title: '',
-        value: ''
+        value: '',
+        color: 'white'
     }
 
+    colors: string[] = [
+        "#b19cd9",
+        "#ff6961",
+        "#77dd77",
+        "#aec6cf",
+        ];
+
+
+    fullForm: boolean = false;
+
     onCreateNote() {
-        const { title, value } =  this.newNote;
+        const { title, value, color  } =  this.newNote;
 
         if(title && value) {
-            this.createNote.next({title, value})
+            this.createNote.next({title, value, color})
         }
         this.reset()
+        this.toggle(false);
     }
 
     reset(){
         this.newNote = {
             title: '',
-            value: ''
+            value: '',
+            color: 'white'
         }
+    }
+
+    toggle(value: boolean){
+        this.fullForm = value;
+    }
+
+    onColorSelected(color){
+        this.newNote.color = color;
     }
 }
