@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { AipService } from './api'
+import { ApiService } from './api'
 
 export class NoteService {
     path: string = '/notes';
